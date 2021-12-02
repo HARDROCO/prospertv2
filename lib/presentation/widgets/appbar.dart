@@ -34,7 +34,7 @@ class CustomAppBar extends AppBar {
             IconButton(
               icon: Icon(Icons.add_reaction_outlined),
               onPressed: () {
-                Get.off(() => ProfilePage());
+                Get.off(() => ProfileUI2());
               },
             ),
             IconButton(
