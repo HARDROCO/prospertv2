@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
-import 'package:modulos/presentation/pages/chat.dart';
-import 'package:modulos/presentation/pages/publicaciones.dart';
-import 'package:modulos/presentation/pages/filas_colum_list.dart';
+import 'package:modulos/presentation/pages/Inicio/inicio_page.dart';
+// import 'package:modulos/presentation/pages/chat.dart';
+// import 'package:modulos/presentation/pages/publicaciones.dart';
+import 'package:modulos/presentation/pages/test_pages/filas_colum_list.dart';
 
 class CustomAppBar extends AppBar {
   final Widget tile;
@@ -39,7 +40,7 @@ class CustomAppBar extends AppBar {
             ),
             IconButton(
                 onPressed: () {
-                  Get.off(() => InicioSesion());
+                  Get.off(() => InicioPage());
                 },
                 icon: Icon(Icons.logout)),
           ],

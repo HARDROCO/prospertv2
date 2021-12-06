@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:modulos/presentation/pages/filas_colum_list.dart';
+import 'package:modulos/presentation/pages/Inicio/inicio_page.dart';
+import 'package:modulos/presentation/pages/Login/login_page.dart';
+import 'package:modulos/presentation/pages/Signup/signup_page.dart';
+import 'package:modulos/presentation/pages/test_pages/filas_colum_list.dart';
+// import 'package:modulos/presentation/pages/filas_colum_list.dart';
 import 'package:modulos/presentation/theme/theme.dart';
 import 'package:modulos/presentation/pages/vistas.dart';
 
@@ -23,21 +27,21 @@ class MyApp extends StatelessWidget {
       darkTheme: MyTheme.darkTheme,
       themeMode: ThemeMode.system,
       //home: MyHomePage(),
-      home: HomePage(),
+      home: InicioPage(),
       // rutas
       initialRoute: '/',
       getPages: [
         GetPage(
-            name: '/Home',
-            page: () => HomePage(),
+            name: '/Inicio',
+            page: () => InicioPage(),
             transition: Transition.fadeIn),
         GetPage(
             name: '/Login',
-            page: () => InicioSesion(),
+            page: () => LoginPage(),
             transition: Transition.zoom),
         GetPage(
             name: '/Signup',
-            page: () => SignUpPage(),
+            page: () => SignupPage(),
             transition: Transition.fadeIn),
         GetPage(
             name: '/Profile',
@@ -52,7 +56,7 @@ class MyApp extends StatelessWidget {
             page: () => TesterPage(),
             transition: Transition.fadeIn),
         GetPage(
-            name: '/VistaPpal',
+            name: '/Home',
             page: () => VistaPpal(),
             transition: Transition.fadeIn),
       ],
