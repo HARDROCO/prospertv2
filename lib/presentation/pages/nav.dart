@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:modulos/presentation/pages/estados.dart';
 import 'package:modulos/presentation/pages/home.dart';
 // import 'package:modulos/presentation/pages/chat.dart';
-// import 'package:modulos/presentation/pages/post.dart';
+import 'package:modulos/presentation/pages/post.dart';
 // import 'package:modulos/presentation/pages/publicaciones.dart';
 import 'package:modulos/presentation/widgets/appbar.dart';
 
@@ -21,7 +21,7 @@ class _MyNav extends State<Nav> {
     //PageSocial(),
     PageEstados(),
     //Pagechat(),
-    //Pagepost(),
+    Pagepost(),
   ];
 
   @override
@@ -56,8 +56,8 @@ class _MyNav extends State<Nav> {
 
           // BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
 
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.assignment_returned_outlined), label: "Post"),
+           BottomNavigationBarItem(
+               icon: Icon(Icons.assignment_returned_outlined), label: "Post"),
         ],
       ),
     );

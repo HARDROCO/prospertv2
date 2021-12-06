@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.fadeIn),
         GetPage(
             name: '/Profile',
-            page: () => ProfilePage(),
+            page: () => ProfileUI2,
             transition: Transition.fadeIn),
         GetPage(
             name: '/ImageGoogle',
