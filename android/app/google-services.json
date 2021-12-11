@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62814103831",
+    "project_id": "prospertv-e0f73",
+    "storage_bucket": "prospertv-e0f73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62814103831:android:49b9c3639054ecb90aaf52",
+        "android_client_info": {
+          "package_name": "com.mintic.prospertv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62814103831-ij5qpskks591748sof7doeebg7igt4j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLIwJxBg5puwBc0hb4kaS70HXefLEhv6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62814103831-ij5qpskks591748sof7doeebg7igt4j1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

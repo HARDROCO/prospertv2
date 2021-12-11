@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
 // BOTONES: crear un widget que reciba una funcion y retorne un boton
@@ -7,6 +8,15 @@ class BotonDefault extends StatelessWidget {
   final String textobtn;
 
   BotonDefault({Key? key, required this.textobtn}) : super(key: key);
+
+  // recuperar controlador de texto
+  // TextEditingController _textoController = Get.find();
+
+  TextEditingController usercontroller =
+      Get.put(TextEditingController(), tag: 'usuario');
+  
+  TextEditingController passcontroller =
+    Get.put(TextEditingController(), tag: 'password');
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +34,7 @@ class BotonDefault extends StatelessWidget {
         onPressed: () {
           _irPage(textobtn);
           print('boton redireccionando');
+          print(usercontroller.text);
         },
       ),
     );
@@ -34,6 +45,7 @@ class BotonDefault extends StatelessWidget {
 void _irPage(String textobtn) {
   if (textobtn == 'Ir a Inicio Sesión') {
     Get.toNamed('/Login');
+    print("se presiono el boton de inicio de sesion");
   } else if (textobtn == 'Ir a Registrarse') {
     Get.toNamed('/Signup');
   } else if (textobtn == 'Iniciar Sesión') {
