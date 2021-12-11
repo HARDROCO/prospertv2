@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modulos/presentation/pages/Inicio/inicio_page.dart';
@@ -278,10 +279,17 @@ class _TesterPageState extends State<TesterPage> {
     );
   }
 
+// ---------------------------------------
+  /// para traer datos de firebase
+  ///
+  ///// alamcenar  info de firebase
+  List list_usuarios = [];
+
 // metodo iniciador de clase
   @override
   void initState() {
     super.initState();
+    getData();
   }
 
 // metodo para cerrar la clase
@@ -289,7 +297,24 @@ class _TesterPageState extends State<TesterPage> {
   void dispose() {
     super.dispose();
   }
+
+  //bring thwe data fromm firebase
+  void getData() async {
+    // get the data from firebase
+    CollectionReference collection =
+        FirebaseFirestore.instance.collection('users');
+    QuerySnapshot users = await collection.get(); // get the data as array
+
+    // mira si la lista esta vacia y no tiene usuarios
+    if (users.docs.isNotEmpty) {
+      // iterate over the data
+      for (var user in users.docs) {
+        print(user.data());
+        // agregar info a la lista
+        list_usuarios.add(user.data());
+      }
+    }
+  }
 }
 
 // -------------------------------------------------
-

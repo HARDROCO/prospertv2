@@ -15,9 +15,6 @@ class BotonDefault extends StatelessWidget {
   TextEditingController usercontroller =
       Get.put(TextEditingController(), tag: 'usuario');
   
-  TextEditingController passcontroller =
-    Get.put(TextEditingController(), tag: 'password');
-
   @override
   Widget build(BuildContext context) {
     return Container(

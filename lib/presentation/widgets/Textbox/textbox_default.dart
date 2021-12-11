@@ -8,13 +8,15 @@ class Textbox extends StatefulWidget {
   final bool hidetxt; // true or false
   final double paddx; // PADDING HORIZONTAL
   final double paddy; // PADDING VERTICAL
+  final TextEditingController txtController; // CONTROLADOR DE TEXTO
 
   Textbox(
       {Key? key,
       required this.lbltext,
       required this.hidetxt,
       required this.paddx,
-      required this.paddy})
+      required this.paddy,
+      required this.txtController})
       : super(key: key);
 
   @override
@@ -26,20 +28,20 @@ class _TextboxState extends State<Textbox> {
   // del TextField!
   final String txtfield = ""; // valor del campo de texto
 
-  final _txtController = TextEditingController();
+  //final _txtController = TextEditingController();
 
   // build a init state
   @override
   void initState() {
     super.initState();
     // Inicializa el controlador con el valor del texto
-    _txtController.text = txtfield;
+    widget.txtController.text = txtfield;
   }
 
   @override
   void dispose() {
     // Limpia el controlador cuando el Widget se descarte
-    _txtController.dispose();
+    widget.txtController.dispose();
     super.dispose();
   }
 
@@ -49,7 +51,7 @@ class _TextboxState extends State<Textbox> {
       padding: EdgeInsets.symmetric(
           horizontal: widget.paddx, vertical: widget.paddy),
       child: TextField(
-        controller: _txtController,
+        controller: widget.txtController,
         obscureText: widget.hidetxt, // ocualta contraseña
         decoration: InputDecoration(
             //put a border color
@@ -63,7 +65,7 @@ class _TextboxState extends State<Textbox> {
             filled: true),
         onChanged: (text) {
           print("texto escrito: $text");
-          print("controller: ${_txtController.text}");
+          print("controller: ${widget.txtController.text}");
         },
         // create a float buttom
 

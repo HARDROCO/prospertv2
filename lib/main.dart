@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -11,8 +12,14 @@ import 'package:modulos/presentation/theme/theme.dart';
 import 'package:modulos/presentation/pages/vistas.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  // asegura de inicializar toda las dependencias que necesita flutter al cargar la app
+  WidgetsFlutterBinding.ensureInitialized();
+  // esto busca en la carpeta de android y verifica la config json para inicilizar un poryecto de firebase asociado e inicializa todo antes de lanzar
+  Firebase.initializeApp().then((value){
+    runApp(const MyApp());
+    });
+  }
+
 
 // construir una clase para el widget MyApp
 class MyApp extends StatelessWidget {

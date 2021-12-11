@@ -1,5 +1,7 @@
 // BODY LOGIN: crear widget con la estrcutura de la paginad e login
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:modulos/domain/use_case/controllers/authentication_controller.dart';
 import 'package:modulos/presentation/widgets/Textbox/textbox_default.dart';
 import 'package:modulos/presentation/widgets/botones/boton_default.dart';
 import 'package:modulos/presentation/widgets/botones/btn_google.dart';
@@ -8,8 +10,12 @@ import 'package:modulos/presentation/widgets/logo_default.dart';
 
 class BodySignup extends StatelessWidget {
   final String textobtn = "";
+  TextEditingController usercontroller = TextEditingController();
+  TextEditingController passcontroller = TextEditingController();
+  TextEditingController mailcontroller = TextEditingController();
+  AuthenticationController authenticationController = Get.put(AuthenticationController());
 
-  const BodySignup({Key? key}) : super(key: key);
+  BodySignup({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +33,24 @@ class BodySignup extends StatelessWidget {
           children: <Widget>[
             Logo(height: 100.0, width: 50.0),
             // Titulo(),
-            Textbox(lbltext: "Usuario", hidetxt: false, paddx: 20, paddy: 8),
-            Textbox(lbltext: "Contraseña", hidetxt: true, paddx: 20, paddy: 8),
-            Textbox(lbltext: "Correo", hidetxt: false, paddx: 20, paddy: 8),
+            Textbox(
+                lbltext: "Usuario",
+                hidetxt: false,
+                paddx: 20,
+                paddy: 8,
+                txtController: usercontroller),
+            Textbox(
+                lbltext: "Contraseña",
+                hidetxt: true,
+                paddx: 20,
+                paddy: 8,
+                txtController: passcontroller),
+            Textbox(
+                lbltext: "Correo",
+                hidetxt: false,
+                paddx: 20,
+                paddy: 8,
+                txtController: mailcontroller),
             const SizedBox(height: 6.0),
             // botones
             BotonDefault(textobtn: 'Registrarse'),

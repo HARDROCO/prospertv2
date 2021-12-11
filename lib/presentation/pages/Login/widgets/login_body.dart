@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:modulos/domain/use_case/controllers/authentication_controller.dart';
 import 'package:modulos/presentation/widgets/Textbox/textbox_default.dart';
 import 'package:modulos/presentation/widgets/botones/boton_default.dart';
 import 'package:modulos/presentation/widgets/botones/btn_google.dart';
@@ -8,8 +10,11 @@ import 'package:modulos/presentation/widgets/logo_default.dart';
 // BODY LOGIN: crear widget con la estrcutura de la paginad e login
 class BodyLogin extends StatelessWidget {
   final String textobtn = "";
+  TextEditingController usercontroller = TextEditingController();
+  TextEditingController passcontroller = TextEditingController();
+  AuthenticationController authenticationController = Get.put(AuthenticationController());
 
-  const BodyLogin({Key? key}) : super(key: key);
+  BodyLogin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +33,8 @@ class BodyLogin extends StatelessWidget {
             Logo(height: 100.0, width: 50.0),
             // Titulo(),
             // cuadros de texto
-            Textbox(lbltext: "Usuario", hidetxt: false, paddx: 20, paddy: 8),
-            Textbox(lbltext: "Contraseña", hidetxt: true, paddx: 20, paddy: 8),
+            Textbox(lbltext: "Usuario", hidetxt: false, paddx: 20, paddy: 8, txtController: usercontroller),
+            Textbox(lbltext: "Contraseña", hidetxt: true, paddx: 20, paddy: 8, txtController: passcontroller),
             const SizedBox(height: 6.0),
             // botones
             BotonDefault(textobtn: 'Iniciar Sesión'),
