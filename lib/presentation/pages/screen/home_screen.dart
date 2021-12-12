@@ -49,7 +49,7 @@ class ResponseHome extends StatelessWidget {
                           IconButton(
                             icon: Icon(Icons.chat_bubble_outline),
                             onPressed: () {
-                              Get.off(() => Pagechat());
+                              Get.to(() => Pagechat());
                             },
                           ),
                         ],

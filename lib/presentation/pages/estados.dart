@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
+import 'package:modulos/presentation/pages/post_state.dart';
 import 'package:modulos/presentation/pages/screen/estados_screen.dart';
 
 class PageEstados extends StatelessWidget {
@@ -27,6 +28,15 @@ class PageEstados extends StatelessWidget {
             ),
           ),
           backgroundColor: Colors.white10,
+          //boton para agregar estados
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+          // Add your onPressed code here!
+              Get.to(() => PostState());
+           },
+            backgroundColor: Colors.purple[300],
+            child: const Icon(Icons.add)
+         ),
       ),
     );
   }

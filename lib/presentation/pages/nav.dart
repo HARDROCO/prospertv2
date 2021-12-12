@@ -3,9 +3,9 @@ import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:modulos/presentation/pages/estados.dart';
 import 'package:modulos/presentation/pages/home.dart';
-// import 'package:modulos/presentation/pages/chat.dart';
-// import 'package:modulos/presentation/pages/post.dart';
-// import 'package:modulos/presentation/pages/publicaciones.dart';
+import 'package:modulos/presentation/pages/chat.dart';
+import 'package:modulos/presentation/pages/post.dart';
+import 'package:modulos/presentation/pages/publicaciones.dart';
 import 'package:modulos/presentation/widgets/appbar.dart';
 
 class Nav extends StatefulWidget {
@@ -18,10 +18,10 @@ class _MyNav extends State<Nav> {
   int _paginaActual = 0;
   final List<Widget> _paginas = [
     Pagehome(),
-    //PageSocial(),
+    PageSocial(),
     PageEstados(),
-    //Pagechat(),
-    //Pagepost(),
+    Pagechat(),
+    Pagepost(),
   ];
 
   @override
@@ -47,17 +47,13 @@ class _MyNav extends State<Nav> {
         currentIndex: _paginaActual,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.social_distance), label: "Social"),
-
+          BottomNavigationBarItem(
+              icon: Icon(Icons.social_distance), label: "Social"),
           BottomNavigationBarItem(
               icon: Icon(Icons.people_alt_sharp), label: "Estados"),
-
-          // BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
-
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.assignment_returned_outlined), label: "Post"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.assignment_returned_outlined), label: "Post"),
         ],
       ),
     );
