@@ -8,14 +8,24 @@ import 'package:modulos/presentation/widgets/botones/btn_google.dart';
 import 'package:modulos/presentation/widgets/botones/btn_text.dart';
 import 'package:modulos/presentation/widgets/logo_default.dart';
 
-class BodySignup extends StatelessWidget {
-  final String textobtn = "";
-  TextEditingController usercontroller = TextEditingController();
-  TextEditingController passcontroller = TextEditingController();
-  TextEditingController mailcontroller = TextEditingController();
-  AuthenticationController authenticationController = Get.put(AuthenticationController());
-
+class BodySignup extends StatefulWidget {
   BodySignup({Key? key}) : super(key: key);
+
+  @override
+  State<BodySignup> createState() => _BodySignupState();
+}
+
+class _BodySignupState extends State<BodySignup> {
+  final String textobtn = "";
+
+  TextEditingController usercontroller = TextEditingController();
+
+  TextEditingController passcontroller = TextEditingController();
+
+  TextEditingController mailcontroller = TextEditingController();
+
+  AuthenticationController authenticationController =
+      Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +63,10 @@ class BodySignup extends StatelessWidget {
                 txtController: mailcontroller),
             const SizedBox(height: 6.0),
             // botones
-            BotonDefault(textobtn: 'Registrarse'),
+            BotonDefault(
+                textobtn: 'Registrarse',
+                uscontroller: usercontroller,
+                psscontroller: passcontroller, routebtn: '/Signup'),
             ButtonGoogle(textobtn: 'Sign up with Google'),
             Txtbtn(
                 textobtn: 'Iniciar Sesión',

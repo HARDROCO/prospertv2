@@ -8,13 +8,22 @@ import 'package:modulos/presentation/widgets/botones/btn_text.dart';
 import 'package:modulos/presentation/widgets/logo_default.dart';
 
 // BODY LOGIN: crear widget con la estrcutura de la paginad e login
-class BodyLogin extends StatelessWidget {
-  final String textobtn = "";
-  TextEditingController usercontroller = TextEditingController();
-  TextEditingController passcontroller = TextEditingController();
-  AuthenticationController authenticationController = Get.put(AuthenticationController());
-
+class BodyLogin extends StatefulWidget {
   BodyLogin({Key? key}) : super(key: key);
+
+  @override
+  State<BodyLogin> createState() => _BodyLoginState();
+}
+
+class _BodyLoginState extends State<BodyLogin> {
+  final String textobtn = "";
+
+  TextEditingController usercontroller = TextEditingController();
+
+  TextEditingController passcontroller = TextEditingController();
+
+  // AuthenticationController authenticationController =
+  //     Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +42,24 @@ class BodyLogin extends StatelessWidget {
             Logo(height: 100.0, width: 50.0),
             // Titulo(),
             // cuadros de texto
-            Textbox(lbltext: "Usuario", hidetxt: false, paddx: 20, paddy: 8, txtController: usercontroller),
-            Textbox(lbltext: "Contraseña", hidetxt: true, paddx: 20, paddy: 8, txtController: passcontroller),
+            Textbox(
+                lbltext: "Usuario",
+                hidetxt: false,
+                paddx: 20,
+                paddy: 8,
+                txtController: usercontroller),
+            Textbox(
+                lbltext: "Contraseña",
+                hidetxt: true,
+                paddx: 20,
+                paddy: 8,
+                txtController: passcontroller),
             const SizedBox(height: 6.0),
             // botones
-            BotonDefault(textobtn: 'Iniciar Sesión'),
+            BotonDefault(
+                textobtn: 'Iniciar Sesión',
+                uscontroller: usercontroller,
+                psscontroller: passcontroller, routebtn: '/Home'),
             ButtonGoogle(textobtn: 'Login with Google'),
             Txtbtn(
                 textobtn: '¿Olvidaste la Contraseña?',
@@ -48,20 +70,8 @@ class BodyLogin extends StatelessWidget {
                 fntsize: 15,
                 colorbtn: Colors.grey.shade700),
             // Spacer()
-            
           ],
         ));
   }
-
-  // // crear widget para titulo inicio de sesión
-  // Widget Titulo() {
-  //   return Container(
-  //       child: Text('Iniciar Sesión',
-  //           style: TextStyle(
-  //               // colocar color de texto en hexadecimal
-  //               color: Colors.grey, // color morado en A rgb
-  //               fontSize: 15.0,
-  //               fontWeight: FontWeight.bold)));
-  // }
 
 }

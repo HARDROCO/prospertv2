@@ -10,14 +10,20 @@ class AuthenticationController extends GetxController {
       return Future.value(true);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('NOK 1');
+        print('usuario no encontrado');
         return Future.error("User not found");
       } else if (e.code == 'wrong-password') {
-        print('NOK 2');
+        print('contraseña incorrecta');
         return Future.error("Wrong password");
+      } else if (e.code == 'invalid-email') {
+        print('email invalido');
+        return Future.error("Wrong email");
+      } else {
+        print(e.code);
+        return Future.error("unknown error");
       }
     }
-    print('NOK');
+    //print('NOK-final');
   }
 
   Future<void> signUp(email, password) async {

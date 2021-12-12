@@ -32,11 +32,11 @@ class BodyInicio extends StatelessWidget {
               Logo(height: 200.0, width: 250.0),
               const SizedBox(height: 30.0),
               // boton para ir a la pagina de login
-              BotonDefault(
-                  textobtn: 'Ir a Inicio Sesión'),
+              BotonDefault.nocontroller(
+                  textobtn: 'Ir a Inicio Sesión', routebtn: '/Login'),
               const SizedBox(height: 20.0),
-              BotonDefault(
-                  textobtn: 'Ir a Registrarse'),
+              BotonDefault.nocontroller(
+                  textobtn: 'Ir a Registrarse', routebtn: '/Signup'),
             ],
           ),
         ));
