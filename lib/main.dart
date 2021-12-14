@@ -15,11 +15,10 @@ void main() {
   // asegura de inicializar toda las dependencias que necesita flutter al cargar la app
   WidgetsFlutterBinding.ensureInitialized();
   // esto busca en la carpeta de android y verifica la config json para inicilizar un poryecto de firebase asociado e inicializa todo antes de lanzar
-  Firebase.initializeApp().then((value){
+  Firebase.initializeApp().then((value) {
     runApp(const MyApp());
-    });
-  }
-
+  });
+}
 
 // construir una clase para el widget MyApp
 class MyApp extends StatelessWidget {

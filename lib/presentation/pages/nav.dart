@@ -1,9 +1,10 @@
 import 'package:get/get.dart';
 import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:modulos/presentation/pages/chat/listaMensajes.dart';
 import 'package:modulos/presentation/pages/estados.dart';
 import 'package:modulos/presentation/pages/home.dart';
-import 'package:modulos/presentation/pages/chat.dart';
+// import 'package:modulos/presentation/pages/chat/chat.dart';
 import 'package:modulos/presentation/pages/post.dart';
 import 'package:modulos/presentation/pages/publicaciones.dart';
 import 'package:modulos/presentation/widgets/appbar.dart';
@@ -20,7 +21,7 @@ class _MyNav extends State<Nav> {
     Pagehome(),
     PageSocial(),
     PageEstados(),
-    Pagechat(),
+    ListaMensajes(),
     Pagepost(),
   ];
 

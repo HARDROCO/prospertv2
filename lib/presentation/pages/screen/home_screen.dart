@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:modulos/data/services/movie_pool.dart';
 import 'package:modulos/domain/models/movie_model.dart';
 import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
-import 'package:modulos/presentation/pages/chat.dart';
+import 'package:modulos/presentation/pages/chat/chat.dart';
 
 class ResponseHome extends StatelessWidget {
   final ThemeController controller;

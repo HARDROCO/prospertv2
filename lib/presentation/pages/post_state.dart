@@ -19,9 +19,8 @@ class _PostState extends State<PostState> {
   final ubicacionController = TextEditingController();
   final List<String> tasks = <String>[];
 
-    //  llamar al autentificador de iniciond de sesion
-  StateController statecontroller =
-      Get.put(StateController());
+  //  llamar al autentificador de iniciond de sesion
+  StateController statecontroller = Get.put(StateController());
 
   @override
   Widget build(BuildContext context) {
@@ -31,23 +30,19 @@ class _PostState extends State<PostState> {
         tile: const Text("Tu post"),
         context: context,
       ),
-      body: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: ListView(
         children: [
           Text("Añada su estado",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: Colors.purple[300]
-              )
-          ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.purple[300])),
           Container(
             padding: EdgeInsets.all(15),
             child: TextField(
               //para que al pasar el mouse se active el teclado
               autofocus: true,
-              //reciba ciertos datos number, datetime etc 
+              //reciba ciertos datos number, datetime etc
               keyboardType: TextInputType.text,
               //autocorrecciones con true
               autocorrect: false,
@@ -57,11 +52,10 @@ class _PostState extends State<PostState> {
                 filled: true,
                 labelText: 'Usuario',
                 prefixIcon: Icon(Icons.person, color: Colors.purple[300]),
-                
               ),
-        
-            controller: usuarioController,
-            onSubmitted: _addItem,
+
+              controller: usuarioController,
+              onSubmitted: _addItem,
             ),
           ),
           Container(
@@ -69,7 +63,7 @@ class _PostState extends State<PostState> {
             child: TextField(
               //para que al pasar el mouse se active el teclado
               autofocus: true,
-              //reciba ciertos datos number, datetime etc 
+              //reciba ciertos datos number, datetime etc
               keyboardType: TextInputType.text,
               //autocorrecciones con true
               autocorrect: false,
@@ -79,11 +73,10 @@ class _PostState extends State<PostState> {
                 filled: true,
                 labelText: 'Ubicación',
                 prefixIcon: Icon(Icons.location_on, color: Colors.purple[300]),
-                
               ),
-         
-            controller: ubicacionController,
-            onSubmitted: _addItem,
+
+              controller: ubicacionController,
+              onSubmitted: _addItem,
             ),
           ),
           Container(
@@ -91,7 +84,7 @@ class _PostState extends State<PostState> {
             child: TextField(
               //para que al pasar el mouse se active el teclado
               autofocus: true,
-              //reciba ciertos datos number, datetime etc 
+              //reciba ciertos datos number, datetime etc
               keyboardType: TextInputType.text,
               //autocorrecciones con true
               autocorrect: false,
@@ -100,17 +93,13 @@ class _PostState extends State<PostState> {
               decoration: InputDecoration(
                 filled: true,
                 labelText: 'Descripcion',
-                prefixIcon: Icon(Icons.book_sharp,color: Colors.purple[300]),
-                
+                prefixIcon: Icon(Icons.book_sharp, color: Colors.purple[300]),
               ),
-         
-            controller: descripcionController,
-            onSubmitted: _addItem,
+
+              controller: descripcionController,
+              onSubmitted: _addItem,
             ),
           ),
-          
-          
-       
           ElevatedButton(
             onPressed: () {
               statecontroller.addState(usuarioController.text,
