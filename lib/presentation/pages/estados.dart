@@ -11,32 +11,29 @@ class PageEstados extends StatelessWidget {
   // We create a Scaffold that is used for all the content pages
   // We only define one AppBar, and one scaffold.
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MinticMobile-Grupo5',
       home: Scaffold(
-          body: Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+        body: Container(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
 
-              //Aqui se llama a la clase que contine toda la magia
-              child: ResponseEstados(controller: controller),
-            ),
+            //Aqui se llama a la clase que contine toda la magia
+            child: ResponseEstados(controller: controller),
           ),
-          backgroundColor: Colors.white10,
-          //boton para agregar estados
-          floatingActionButton: FloatingActionButton(
+        ),
+        backgroundColor: Colors.white10,
+        //boton para agregar estados
+        floatingActionButton: FloatingActionButton(
             onPressed: () {
-          // Add your onPressed code here!
+              // Add your onPressed code here!
               Get.to(() => PostState());
-           },
+            },
             backgroundColor: Colors.purple[300],
-            child: const Icon(Icons.add)
-         ),
+            child: const Icon(Icons.add)),
       ),
     );
   }

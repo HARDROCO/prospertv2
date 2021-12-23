@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:modulos/domain/use_case/controllers/state_controllers.dart';
 import 'package:modulos/domain/use_case/controllers/theme_controller.dart';
+import 'package:modulos/presentation/pages/nav.dart';
+import 'package:modulos/presentation/widgets/Textbox/textbox_default.dart';
 import 'package:modulos/presentation/widgets/appbar.dart';
 
 class PostState extends StatefulWidget {
@@ -14,10 +15,11 @@ class PostState extends StatefulWidget {
 
 class _PostState extends State<PostState> {
   final ThemeController controller = Get.find();
-  final usuarioController = TextEditingController();
-  final descripcionController = TextEditingController();
-  final ubicacionController = TextEditingController();
-  final List<String> tasks = <String>[];
+  final String textobtn = "";
+  final TextEditingController usuarioController = TextEditingController();
+  final TextEditingController descripcionController = TextEditingController();
+  final TextEditingController ubicacionController = TextEditingController();
+  final int page = 3;
 
   //  llamar al autentificador de iniciond de sesion
   StateController statecontroller = Get.put(StateController());
@@ -31,79 +33,33 @@ class _PostState extends State<PostState> {
         context: context,
       ),
       body: ListView(
-        children: [
-          Text("Añada su estado",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color: Colors.purple[300])),
-          Container(
-            padding: EdgeInsets.all(15),
-            child: TextField(
-              //para que al pasar el mouse se active el teclado
-              autofocus: true,
-              //reciba ciertos datos number, datetime etc
-              keyboardType: TextInputType.text,
-              //autocorrecciones con true
-              autocorrect: false,
-              //alineacion del fiel
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Usuario',
-                prefixIcon: Icon(Icons.person, color: Colors.purple[300]),
-              ),
-
-              controller: usuarioController,
-              onSubmitted: _addItem,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(15),
-            child: TextField(
-              //para que al pasar el mouse se active el teclado
-              autofocus: true,
-              //reciba ciertos datos number, datetime etc
-              keyboardType: TextInputType.text,
-              //autocorrecciones con true
-              autocorrect: false,
-              //alineacion del fiel
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Ubicación',
-                prefixIcon: Icon(Icons.location_on, color: Colors.purple[300]),
-              ),
-
-              controller: ubicacionController,
-              onSubmitted: _addItem,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(15),
-            child: TextField(
-              //para que al pasar el mouse se active el teclado
-              autofocus: true,
-              //reciba ciertos datos number, datetime etc
-              keyboardType: TextInputType.text,
-              //autocorrecciones con true
-              autocorrect: false,
-              //alineacion del fiel
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                filled: true,
-                labelText: 'Descripcion',
-                prefixIcon: Icon(Icons.book_sharp, color: Colors.purple[300]),
-              ),
-
-              controller: descripcionController,
-              onSubmitted: _addItem,
-            ),
-          ),
+        padding: EdgeInsets.all(10),
+        children: <Widget>[
+          Textbox(
+              lbltext: "Usuario",
+              hidetxt: false,
+              paddx: 20,
+              paddy: 8,
+              txtController: usuarioController),
+          Textbox(
+              lbltext: "Descripcion",
+              hidetxt: false,
+              paddx: 20,
+              paddy: 8,
+              txtController: descripcionController),
+          Textbox(
+              lbltext: "Ubicacion",
+              hidetxt: false,
+              paddx: 20,
+              paddy: 8,
+              txtController: ubicacionController),
+          const SizedBox(height: 6.0),
           ElevatedButton(
             onPressed: () {
+              StateController statecontroller = Get.find();
               statecontroller.addState(usuarioController.text,
                   descripcionController.text, ubicacionController.text);
+              Get.to(Nav(page));
             },
             child: Text('Publicar'),
           )
@@ -111,14 +67,5 @@ class _PostState extends State<PostState> {
       ),
       backgroundColor: Colors.white10,
     );
-  }
-
-  _addItem(value) {
-    usuarioController.clear();
-    descripcionController.clear();
-    ubicacionController.clear();
-    setState(() {
-      tasks.add(value);
-    });
   }
 }

@@ -22,16 +22,20 @@ class CustomAppBar extends AppBar {
           centerTitle: true,
           title: tile,
           leading: IconButton(
-            icon: Obx(
-              () => Icon(
-                controller.darkMode
-                    ? Icons.light_mode_rounded
-                    : Icons.dark_mode_rounded,
-              ),
-            ),
-            onPressed: () => controller.darkMode = !controller.darkMode,
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Get.back(),
           ),
           actions: [
+            IconButton(
+              icon: Obx(
+                () => Icon(
+                  controller.darkMode
+                      ? Icons.light_mode_rounded
+                      : Icons.dark_mode_rounded,
+                ),
+              ),
+              onPressed: () => controller.darkMode = !controller.darkMode,
+            ),
             IconButton(
               icon: Icon(Icons.add_reaction_outlined),
               onPressed: () {

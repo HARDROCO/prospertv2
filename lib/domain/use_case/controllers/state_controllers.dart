@@ -16,8 +16,7 @@ class StateController extends GetxController {
 
     listStates.add(state);
     print(listStates[0].usuario);
-    print(listStates[1].usuario);
-    print(listStates[2].usuario);
-    print(listStates[2].usuario);
+    print(listStates[0].descripcion);
+    print(listStates[0].ubicacion);
   }
 }
